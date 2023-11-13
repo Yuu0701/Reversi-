@@ -1,4 +1,4 @@
-import javax.swing.JButton;
+
 
 /**
  * Lead Author(s):
@@ -24,16 +24,29 @@ import javax.swing.JButton;
  * 
  * */
 
-public class ReversiGame
+public class ReversiGame 
 {
 	//use static for now so that I can easily implement variables in other classes
 	static final int SIZE = 8;
-    private JButton[][] boardButtons = new JButton[SIZE][SIZE];
     static String[][] board = new String[SIZE][SIZE];
-    static boolean isAIPlayer = false;
     
     //create an object of ReversiPieces and instantiate as a String variable
-    static ReversiPieces currentPlayer = new ReversiPieces("B");
+    static String empty = " ";
+    static Piece currentPlayer = new ReversiPieces("B");
+    static Piece opponentPlayer = new ReversiPieces("W"); 
 	static String player = currentPlayer.pieceType();
-    
+	static String opponent = opponentPlayer.pieceType();
+	
+	//I will need variables that judge if a piece can be placed
+	static boolean put = false;
+	
+	//need variables that count the scores
+	static int countBlack = 0;
+	static int countWhite = 0;
+	
+	//need variables that determines if black or white piece can be placed on the board
+	static boolean judgeB = false;
+	static boolean judgeW = false;
+	
+	
 }
