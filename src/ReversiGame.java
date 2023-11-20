@@ -1,3 +1,13 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 
 /**
@@ -24,7 +34,7 @@
  * 
  * */
 
-public class ReversiGame 
+public class ReversiGame extends JFrame
 {
 	//use static for now so that I can easily implement variables in other classes
 	static final int SIZE = 8;
@@ -48,5 +58,49 @@ public class ReversiGame
 	static boolean judgeB = false;
 	static boolean judgeW = false;
 	
+	public ReversiGame() 
+	{
+		JLabel label = new JLabel();
+		JPanel panel = new JPanel();
+		JButton button = new JButton("click me");
+		
+		this.setTitle("Reversi Game");
+		
+		setPreferredSize(new Dimension(500, 550));
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.pack();
+		this.setVisible(true);
+	}
+	
+	//Source: http://www.java2s.com/Code/Java/2D-Graphics-GUI/DrawrectanglesusethedrawRectmethodTofillrectanglesusethefillRectmethod.htm 
+	//How to paint the 2d GUI
+	public void paintComponent(Graphics g)
+	{
+		
+	}
+	
+	public String[][] initialize()
+	{
+		for(int i = 0; i < board.length; i++)
+		{
+			for(int j = 0; j < board.length; j++)
+			{
+				board[i][j] = empty;
+			}
+		}
+		//have the pieces in correct position
+		board[3][3] = player;
+		board[3][4] = opponent;
+		board[4][3] = player;
+		board[4][4] = opponent;
+		
+		return board;
+		
+	}
+	
+	public static void main(String[]args)
+	{
+		new ReversiGame();
+	}
 	
 }
